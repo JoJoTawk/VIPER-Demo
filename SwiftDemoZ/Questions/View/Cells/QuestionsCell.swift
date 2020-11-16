@@ -17,10 +17,15 @@ class QuestionsCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var radioBtn: UIButton! {
+    @IBOutlet weak var radioImg: UIImageView! {
         didSet {
-            radioBtn.setImage(UIImage(named: "checked-radio-button"), for: .normal)
+            radioImg.image = UIImage(named: "unchecked-radio-button")
         }
+    }
+    
+    func handleRadioButton(selectedIndex: Int, indexPath: Int) {
+        let imageName = selectedIndex == indexPath ? "checked-radio-button" : "unchecked-radio-button"
+        radioImg.image = UIImage(named: imageName)
     }
 }
 

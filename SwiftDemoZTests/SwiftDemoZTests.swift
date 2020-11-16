@@ -31,4 +31,40 @@ class SwiftDemoZTests: XCTestCase {
         }
     }
 
+    func test_givenValidResourceExists_dataIsReturned() {
+        let service = NetworkService(session: URLSession(configuration: .ephemeral),
+                                     modifiers: TestCases1.listQuestions.build())
+        let expectation = self.expectation(description: "resource")
+        var resourceData: Data?
+        var resourceError: Error?
+        service.apiCall { (result) in
+            switch result {
+            case .success(let data):
+                resourceData = data
+            case .failure(let error):
+                resourceError = error
+            }
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+        
+        XCTAssertNil(resourceError)
+        XCTAssertNotNil(resourceData)
+    }
+    
+}
+
+enum TestCases1 {
+    case listQuestions
+}
+
+extension TestCases1: Request {
+    var method: HTTPMethod {
+        return .get
+    }
+    
+    var path: String {
+        return API.host + API.mainURL
+    }
 }

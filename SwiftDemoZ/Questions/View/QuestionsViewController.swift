@@ -14,14 +14,14 @@ protocol QuestionsViewControllerProtocol: class {
     //PRESENTER -- > VIEW
     func getQuestions()
     func reloadData(modal: [Question])
-    }
+}
 
 class QuestionsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.delegate = self
-            tableView.dataSource = self
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
             let nibName = UINib(nibName: String(describing: QuestionsCell.self), bundle: nil)
             tableView.register(nibName, forCellReuseIdentifier: identifier)
             tableView.backgroundColor = .white
@@ -32,8 +32,13 @@ class QuestionsViewController: UIViewController {
         didSet {
             questionTitleLabel.numberOfLines = 0
             questionTitleLabel.textColor = .black
+            questionTitleLabel.layer.cornerRadius = 10.0
+            questionTitleLabel.layer.masksToBounds = true
+            questionTitleLabel.backgroundColor = .lightGray
         }
     }
+    
+    @IBOutlet weak var submitButton: UIButton!
     
     var presenter: QuestionsPresenterProtocol?
     var answersArray: [Answer] = []
@@ -48,6 +53,13 @@ class QuestionsViewController: UIViewController {
         self.view.backgroundColor = .white
         
         presenter?.getQuestions()
+        
+        dimButton(enabled: false)
+    }
+    
+    func dimButton(enabled: Bool) {
+        submitButton.alpha = enabled ? 1.0 : 0.5
+        submitButton.isEnabled = enabled ? true : false
     }
     
     func createTitleView() {
@@ -62,6 +74,13 @@ class QuestionsViewController: UIViewController {
         alertView.addAction(okay)
         self.present(alertView, animated: true, completion: nil)
     }
+    
+    
+    @IBAction func submitAction(_ sender: Any) {
+        let item = answersArray[selectedIndex ?? 0]
+        let bool = item.correct
+        showAlert(correct: bool)
+    }
 }
 
 extension QuestionsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -73,6 +92,7 @@ extension QuestionsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         
@@ -82,15 +102,16 @@ extension QuestionsViewController: UITableViewDelegate, UITableViewDataSource {
      
         let item = answersArray[indexPath.row]
         qCell.titleLabel.text = item.title
-        
+        if let selectionIndex = selectedIndex {
+            qCell.handleRadioButton(selectedIndex: selectionIndex, indexPath: indexPath.row)
+        }
         return qCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = answersArray[indexPath.row]
-        
-        let bool = item.correct
-        showAlert(correct: bool)
+        selectedIndex = indexPath.row
+        dimButton(enabled: true)
+        tableView.reloadSections(IndexSet(integer: 0), with: .none)
     }
 }
 

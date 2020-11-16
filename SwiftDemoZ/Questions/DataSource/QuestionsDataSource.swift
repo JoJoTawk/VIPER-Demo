@@ -21,7 +21,7 @@ class QuestionsDataSource: QuestionsDataSourceProtocol {
         let service = NetworkService(session: URLSession(configuration: .ephemeral),
                                      modifiers: QuestionProvider.listQuestions.build())
         
-        service.get { (result) in
+        service.apiCall { (result) in
             
             switch result {
             case .failure(let error):
@@ -37,20 +37,5 @@ class QuestionsDataSource: QuestionsDataSourceProtocol {
                 }
             }   
         }
-    }
-}
-
-enum QuestionProvider {
-    case listQuestions
-}
-
-extension QuestionProvider: Request {
-    
-    var path: String {
-        return API.host + API.mainURL
-    }
-    
-    var host: String {
-        return API.host
     }
 }

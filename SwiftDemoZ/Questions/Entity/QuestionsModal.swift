@@ -21,5 +21,3 @@ struct Answer: Codable {
     let title: String // The prompt/title/answer choice to the question
     let correct: Bool // Is this the correct answer or not
 }
-
-

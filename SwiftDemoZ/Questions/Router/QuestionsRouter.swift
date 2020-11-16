@@ -29,8 +29,5 @@ class QuestionsRouter: QuestionsRouterProtocol {
         interactor.dataSource = dataManager
         return instance
         
-    }
-    
-    
-    
+    }    
 }

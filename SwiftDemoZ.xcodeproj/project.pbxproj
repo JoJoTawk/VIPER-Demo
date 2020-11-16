@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B72A0EE62562725800676F1C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72A0EE52562725800676F1C /* Service.swift */; };
+		B72A0EED256273C800676F1C /* QuestionsRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72A0EEC256273C800676F1C /* QuestionsRequestBuilder.swift */; };
 		B792012E254A5380002131E8 /* QuestionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792012D254A5380002131E8 /* QuestionsCell.swift */; };
 		B7920130254A550B002131E8 /* QuestionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B792012F254A550B002131E8 /* QuestionsCell.xib */; };
-		B7920133254AC64B002131E8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7920132254AC64B002131E8 /* Service.swift */; };
 		B7920136254AC708002131E8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7920135254AC708002131E8 /* Constants.swift */; };
 		B7920138254ACE25002131E8 /* QuestionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7920137254ACE25002131E8 /* QuestionsDataSource.swift */; };
-		B792013A254AD387002131E8 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7920139254AD387002131E8 /* Modal.swift */; };
+		B792013A254AD387002131E8 /* QuestionsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7920139254AD387002131E8 /* QuestionsModal.swift */; };
 		B792013C254AD548002131E8 /* QuestionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792013B254AD548002131E8 /* QuestionsPresenter.swift */; };
 		B792013E254AD5D1002131E8 /* QuestionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792013D254AD5D1002131E8 /* QuestionsInteractor.swift */; };
 		B7920140254AD5F0002131E8 /* QuestionsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792013F254AD5F0002131E8 /* QuestionsRouter.swift */; };
@@ -40,12 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B72A0EE52562725800676F1C /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		B72A0EEC256273C800676F1C /* QuestionsRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsRequestBuilder.swift; sourceTree = "<group>"; };
 		B792012D254A5380002131E8 /* QuestionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsCell.swift; sourceTree = "<group>"; };
 		B792012F254A550B002131E8 /* QuestionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionsCell.xib; sourceTree = "<group>"; };
-		B7920132254AC64B002131E8 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Service.swift; path = ../../../../../../Applications/Service.swift; sourceTree = "<group>"; };
 		B7920135254AC708002131E8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B7920137254ACE25002131E8 /* QuestionsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsDataSource.swift; sourceTree = "<group>"; };
-		B7920139254AD387002131E8 /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
+		B7920139254AD387002131E8 /* QuestionsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsModal.swift; sourceTree = "<group>"; };
 		B792013B254AD548002131E8 /* QuestionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsPresenter.swift; sourceTree = "<group>"; };
 		B792013D254AD5D1002131E8 /* QuestionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsInteractor.swift; sourceTree = "<group>"; };
 		B792013F254AD5F0002131E8 /* QuestionsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsRouter.swift; sourceTree = "<group>"; };
@@ -96,7 +98,7 @@
 		B7920131254A5884002131E8 /* service */ = {
 			isa = PBXGroup;
 			children = (
-				B7920132254AC64B002131E8 /* Service.swift */,
+				B72A0EE52562725800676F1C /* Service.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -168,8 +170,8 @@
 				B7ED7BBA254A5122003C75CF /* View */,
 				B7ED7BBB254A512A003C75CF /* Presenter */,
 				B7ED7BBC254A5134003C75CF /* Interactor */,
-				B7ED7BBE254A5146003C75CF /* Entity */,
 				B7ED7BBF254A515F003C75CF /* Router */,
+				B7ED7BBE254A5146003C75CF /* Entity */,
 				B7ED7BBD254A513A003C75CF /* DataSource */,
 			);
 			path = Questions;
@@ -213,7 +215,8 @@
 		B7ED7BBE254A5146003C75CF /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				B7920139254AD387002131E8 /* Modal.swift */,
+				B7920139254AD387002131E8 /* QuestionsModal.swift */,
+				B72A0EEC256273C800676F1C /* QuestionsRequestBuilder.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B792013E254AD5D1002131E8 /* QuestionsInteractor.swift in Sources */,
+				B72A0EE62562725800676F1C /* Service.swift in Sources */,
 				B792012E254A5380002131E8 /* QuestionsCell.swift in Sources */,
 				B7ED7B9C254A50F4003C75CF /* ViewController.swift in Sources */,
 				B7920138254ACE25002131E8 /* QuestionsDataSource.swift in Sources */,
@@ -338,11 +342,11 @@
 				B7ED7BC1254A517B003C75CF /* QuestionsViewController.swift in Sources */,
 				B7920136254AC708002131E8 /* Constants.swift in Sources */,
 				B792013C254AD548002131E8 /* QuestionsPresenter.swift in Sources */,
+				B72A0EED256273C800676F1C /* QuestionsRequestBuilder.swift in Sources */,
 				B7920142254AEAAC002131E8 /* CustomTableViewHeader.swift in Sources */,
 				B7920140254AD5F0002131E8 /* QuestionsRouter.swift in Sources */,
 				B7ED7B9A254A50F4003C75CF /* SceneDelegate.swift in Sources */,
-				B792013A254AD387002131E8 /* Modal.swift in Sources */,
-				B7920133254AC64B002131E8 /* Service.swift in Sources */,
+				B792013A254AD387002131E8 /* QuestionsModal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
